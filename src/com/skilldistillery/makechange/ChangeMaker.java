@@ -35,7 +35,7 @@ public class ChangeMaker {
 			moneyInts[i] = mI;
 //			System.out.println("Number going into the array is: " + mI);
 		}
-		if (remainder > 0) {
+		if (remainder > 0.005) {
 			moneyInts [6] += 1;
 			System.out.println(moneyInts[6]);
 		}
@@ -64,9 +64,13 @@ public class ChangeMaker {
 						System.out.println("How much more do you pay?");
 						double moreTendered = kb.nextDouble();
 						amtTendered += moreTendered;
+						System.out.println("Right now amt tendered is " + amtTendered);
 						if (amtTendered == amtOwed) {
 							System.out.println("That's the exact amount owed.  Have a nice day!");
 							return 0.0;
+						}
+						else if (amtTendered > amtOwed) {
+							changeDue = amtTendered - amtOwed;
 						}
 					} else {
 						System.out.println("Sorry friend, maybe next time.");
