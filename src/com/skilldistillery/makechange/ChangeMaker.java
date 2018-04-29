@@ -48,7 +48,6 @@ public class ChangeMaker {
 		//if statement to account for weirdness in the double division that can affect the pennies calculation
 		if (remainder > 0.005) {
 			moneyInts[6] += 1;
-			System.out.println(moneyInts[6]);
 		}
 		return moneyInts;
 	}
@@ -79,7 +78,6 @@ public class ChangeMaker {
 						System.out.println("How much more do you pay?");
 						double moreTendered = kb.nextDouble();
 						amtTendered += moreTendered;
-						System.out.println("Right now amt tendered is " + amtTendered);
 						if (amtTendered == amtOwed) {
 							System.out.println("That's the exact amount owed.  Have a nice day!");
 							return 0.0;
