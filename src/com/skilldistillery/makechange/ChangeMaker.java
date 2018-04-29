@@ -3,11 +3,14 @@ package com.skilldistillery.makechange;
 import java.util.Scanner;
 
 public class ChangeMaker {
-
+	public double changeDue = 0.0;
+	int [] moneyInts = {0, 0, 0, 0, 0, 0, 0};
+	
+	
 	public void run() {
 		askInput();
-//		calcChange();
-//		issueChange();
+		calcChange(changeDue);
+//		issueChange(moneyInts);
 
 	}
 
@@ -17,17 +20,33 @@ public class ChangeMaker {
 
 	}
 
-	public void calcChange() {
+	public int[] calcChange(double d) {
 		// TODO Write method that takes the change amount from the askInput method and
 		// creates an array of quotients that correspond to the various monetary amounts
-
+		double [] moneyTypes = {10.0, 5.0, 1.0, 0.25, 0.1, 0.05, 0.01};
+		double remainder = 0.0;
+		System.out.println("Right now d is: " + d);
+		for (int i = 0; i < moneyTypes.length; i++) {
+			remainder = d % moneyTypes[i];
+			System.out.println("Right now remainder is: " + remainder);
+			int mI = (int)(d / moneyTypes[i]);
+			System.out.println("Right now mI is: " + mI);
+			d = remainder;
+			moneyInts[i] = mI;
+//			System.out.println("Number going into the array is: " + mI);
+		}
+		if (remainder > 0) {
+			moneyInts [6] += 1;
+			System.out.println(moneyInts[6]);
+		}
+		return moneyInts;
 	}
 
 	public double askInput() {
 		// TODO Write method that asks the user for input and determines if there is
 		// change to be issued
 		Scanner kb = new Scanner(System.in);
-		double amtOwed = 0.0, amtTendered = 0.0, changeDue = 0.0;
+		double amtOwed = 0.0, amtTendered = 0.0;
 		System.out.print("How much do you owe? ");
 		amtOwed = kb.nextDouble();
 		if (amtOwed <= 0) {
