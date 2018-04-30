@@ -74,7 +74,7 @@ public class ChangeMaker {
 					System.out.println("Looks like you're a little short.");
 					System.out.println("Do you have more money on you? (Y/N)");
 					String choice = kb.next();
-					if (choice.equals("Y") || choice.equalsIgnoreCase("yes")) {
+					if (choice.equalsIgnoreCase("Y") || choice.equalsIgnoreCase("yes")) {
 						System.out.println("How much more do you pay?");
 						double moreTendered = kb.nextDouble();
 						amtTendered += moreTendered;
